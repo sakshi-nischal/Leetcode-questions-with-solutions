@@ -33,3 +33,41 @@ class Solution:
 Time complexity O(n)
 Space Complexity O(1)
 """
+
+
+class Solution(object):
+    def compress(self, chars):
+        """
+        :type chars: List[str]
+        :rtype: int
+        """
+        # Handling string with length less than 1
+        if len(chars) == 0 or len(chars) == 1:
+            return len(chars)
+
+        j = 0
+        count = 1
+
+        for i in range(len(chars) - 1):
+            # If next element is same then update the count
+            if chars[i] == chars[i + 1]:
+                count += 1
+            else:
+                # If not same then store the currect element at j and update the counter
+                chars[j] = str(chars[i])
+                j += 1
+                # Handle double digit count
+                if count > 1:
+                    for digit in str(count):
+                        chars[j] = digit
+                        j += 1
+                count = 1
+        # Handling last element
+        chars[j] = str(chars[len(chars) - 1])
+        j += 1
+        if count > 1:
+            for digit in str(count):
+                chars[j] = digit
+                j += 1
+
+        return j
