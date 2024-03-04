@@ -1,3 +1,4 @@
+# Approach 1: Using While loop
 class Solution:
     def compress(self, chars) -> int:
         len_chars = len(chars)
@@ -34,7 +35,7 @@ Time complexity O(n)
 Space Complexity O(1)
 """
 
-
+# Approach 2: Using For loop
 class Solution(object):
     def compress(self, chars):
         """
@@ -71,3 +72,8 @@ class Solution(object):
                 j += 1
 
         return j
+
+"""
+Time complexity O(n)
+Space Complexity O(1)
+"""
